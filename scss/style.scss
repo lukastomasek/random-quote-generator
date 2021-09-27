@@ -8,17 +8,33 @@ h1{
 }
 
 .content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 200px;
-  width:  auto;
+  width:  1200px;
   font-size: 1.5em;
   text-align: center;
-  margin: 4em 0;
+  margin: 4em auto;
   border: 5px solid white;
-
+  
   div{
     padding: 2em 0;
     display: flex;
-    justify-content:space-around;
+    justify-content:center;
     align-items:center;
   }
+}
+
+button{
+  @include btn;
+}
+
+.btns{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+i{
+  margin: 0.1em;
 }

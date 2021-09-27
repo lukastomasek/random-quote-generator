@@ -2,6 +2,7 @@ import RandomCol from './classes/BgChanger.js'
 
 
 const quote_btn = document.getElementById('quote-btn')
+const tweet_btn = document.getElementById('tweet')
 const quote = document.querySelector('.quote')
 const quote_src = document.querySelector('.author')
 const main = document.querySelector('main')
@@ -9,6 +10,7 @@ const main = document.querySelector('main')
 const RandomBg = new RandomCol()
 
 const url = "https://api.quotable.io/random?minLength=100&maxLength=140"
+const twitter_url = "https://twitter.com/"
 
 function generateQuote(){
   fetch(url)
@@ -17,7 +19,7 @@ function generateQuote(){
     })
     .then(function(data){
       quote.textContent = `"${data.content}"`
-      quote_src.textContent = `${data.author}`
+      quote_src.textContent = `- ${data.author}`
     })
     .catch(function(err){
       console.log(err)
@@ -53,4 +55,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
 quote_btn.addEventListener('click', ()=>{
   generateQuoteAsync()
   main.style.backgroundColor = "#" + RandomBg.changeBackgroundCol()
+})
+
+tweet_btn.addEventListener('click', ()=>{
+  window.open(twitter_url)
 })
