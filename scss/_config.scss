@@ -1,0 +1,25 @@
+$primary-col: white;
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+main{
+  min-height: 100vh;
+  @include set-col($primary-col)
+}
+
+@function set-text-color($color){
+    @if(lightness($color) > 70%){
+       @return $color;
+    }
+    @else{
+        @return darkgrey;
+    }
+}
+
+@mixin set-col($color){
+  color: set-text-color($color)
+}
