@@ -29,6 +29,9 @@ h1{
     .quote{
       font-family:$main-font;
       font-weight: lighter;
+      &:hover{
+        cursor: pointer;
+      }
     }
 
     .author{

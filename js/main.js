@@ -49,7 +49,7 @@ async function generateQuoteAsync(){
 
 function copyToClipboard(text){
   let copyQuote = text
-  
+
   navigator.clipboard.writeText(copyQuote)
 
   alert(`Copied text to clipboard!`)
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 })
 
 quote_btn.addEventListener('click', ()=>{
-  generateQuote()
+  generateQuoteAsync()
   randomBackground()
 })
 
