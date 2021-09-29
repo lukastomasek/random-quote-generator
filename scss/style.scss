@@ -4,7 +4,9 @@ h1{
   padding: 1em 0;
   text-align: center;
   text-transform: capitalize;
-  font-size: 3em
+  font-size: 3em;
+  font-family: $main-font;
+  font-weight:bolder;
 }
 
 .content{
@@ -23,6 +25,16 @@ h1{
     display: flex;
     justify-content:center;
     align-items:center;
+
+    .quote{
+      font-family:$main-font;
+      font-weight: lighter;
+    }
+
+    .author{
+      font-family:$main-font;
+      font-weight: lighter;
+    }
   }
 }
 

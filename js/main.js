@@ -19,7 +19,7 @@ function generateQuote(){
     })
     .then(function(data){
       quote.textContent = `"${data.content}"`
-      quote_src.textContent = `- ${data.author}`
+      quote_src.textContent = `${data.author}`
     })
     .catch(function(err){
       console.log(err)
@@ -27,6 +27,7 @@ function generateQuote(){
 
 }
 
+const randomBackground = () => main.style.backgroundColor = "#" + RandomBg.changeBackgroundCol()
 
 async function generateQuoteAsync(){
 
@@ -46,17 +47,26 @@ async function generateQuoteAsync(){
 
 }
 
+function copyToClipboard(text){
+  let copyQuote = text
+  
+  navigator.clipboard.writeText(copyQuote)
+
+  alert(`Copied text to clipboard!`)
+
+}
+
 document.addEventListener('DOMContentLoaded', ()=> {
   generateQuote()
-  console.log(RandomBg.changeBackgroundCol())
-  main.style.backgroundColor = "#" + RandomBg.changeBackgroundCol()
+  randomBackground()  
 })
 
 quote_btn.addEventListener('click', ()=>{
-  generateQuoteAsync()
-  main.style.backgroundColor = "#" + RandomBg.changeBackgroundCol()
+  generateQuote()
+  randomBackground()
 })
 
 tweet_btn.addEventListener('click', ()=>{
+  copyToClipboard(quote.textContent)
   window.open(twitter_url)
 })
